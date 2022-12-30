@@ -14,11 +14,13 @@ let login_details = {
     password: '123@abc'
 }
 
-describe('Register, Login and Call Test Collection with Basic Auth and JWT Auth', () => {
+describe('Register, Login User', () => {
    beforeEach((done) => { //Before each test initialize the database to empty
-       //db.userList = [];
-
-       done();
+        //db.userList = [];
+        User.deleteOne({ name: 'test'}, function(err, user) {
+            if (err) throw err;
+        });
+        done();
     })
 
     after((done) => { //after this test suite empty the database
@@ -36,7 +38,6 @@ describe('Register, Login and Call Test Collection with Basic Auth and JWT Auth'
               .post('/signup')
               .send(login_details)
               .end((err, res) =>{
-                console.log(JSON.stringify(res.body));
                 res.should.have.status(200);
                 res.body.success.should.be.eql(true);
                 //follow-up to get the JWT token
@@ -47,11 +48,9 @@ describe('Register, Login and Call Test Collection with Basic Auth and JWT Auth'
                         res.should.have.status(200);
                         res.body.should.have.property('token');
                         let token = res.body.token;
-                        console.log(token);
                         done();
                     })
               })
         })
     });
-
 });
