@@ -27,7 +27,7 @@ Create a collection in MongoDB to hold information about movies
         - password (should be hashed)
     - If username exists the endpoint should return an error that the user already exists
     - JWT secret needs to be stored in an environment variable
-- Update the Pre-React CSC3916_HW5 placeholder project to support /signup and /signin methods.  The React Single Page App should use your Assignment 3 API to support those two operations.
+- Update the Pre-React CSC3916_REACT placeholder project to support /signup and /signin methods.  The React Single Page App should use your Assignment 3 API to support those two operations.
 
 ## Submissions
 - All source code should be stored on github (remember .gitignore for node_modules)
