@@ -28,6 +28,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "runtimeArgs": [
+                "--require=dotenv/config"
+            ],
             "program": "${workspaceFolder}/server.js"
         }
     ]
